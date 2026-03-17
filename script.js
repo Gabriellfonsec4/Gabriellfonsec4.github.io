@@ -56,27 +56,34 @@ window.addEventListener("scroll", () => {
 });
 
 /* ===================== */
-/* AUTO SLIDER DEPOIMENTOS */
+/* SLIDER CORRIGIDO */
 /* ===================== */
 
 const slider = document.querySelector(".depoimentos-grid");
 
-let scrollAmount = 0;
+let scrollPosition = 0;
 
-function autoSlide() {
+// GARANTE QUE COMEÇA DO INÍCIO
+window.addEventListener("load", () => {
+  if (slider) {
+    slider.scrollLeft = 0;
+  }
+});
+
+setInterval(() => {
   if (!slider) return;
 
-  scrollAmount += slider.offsetWidth * 0.9;
+  scrollPosition += 250;
 
-  if (scrollAmount >= slider.scrollWidth) {
-    scrollAmount = 0;
+  if (scrollPosition >= slider.scrollWidth - slider.clientWidth) {
+    scrollPosition = 0;
   }
 
   slider.scrollTo({
-    left: scrollAmount,
+    left: scrollPosition,
     behavior: "smooth",
   });
-}
+}, 4000);
 
 setInterval(autoSlide, 4000);
 const sobreTexto = document.querySelector(".sobre-texto");

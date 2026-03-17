@@ -695,13 +695,3 @@ footer p {
     fill: #ffffff;
   }
 }
-
-/* ===================== */
-/* REMOVER LOADER NO MOBILE */
-/* ===================== */
-
-@media (max-width: 768px) {
-  #loader {
-    display: none;
-  }
-}
